@@ -30,7 +30,7 @@ update action model =
 
 
 -- VIEW
-
+-- 2 or 3 params?
 view : Signal.Address Action -> Model -> Html
 view address model =
   div []
