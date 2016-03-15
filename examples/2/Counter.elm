@@ -18,7 +18,15 @@ init count = count
 
 type Action = Increment | Decrement
 
-
+-- is it safe to call this our event handler?
+-- implicitly registered with onClick...
+-- tutorial: 
+-- 'Every event handler in our view function reports to a particular address'
+-- 'The StartApp package monitors all the messages coming in to this address 
+--  and feeds them into the update function.'
+--  After the model is updated, elm takes care of rendering it.  
+--  ...kind of like angular's digest cycle???
+ 
 update : Action -> Model -> Model
 update action model =
   case action of

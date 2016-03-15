@@ -13,7 +13,9 @@ type alias Model =
     , bottomCounter : Counter.Model
     }
 
-
+-- notice how the 'return val' of the expression
+-- is implicitly a model in code and explicit
+-- in the type def
 init : Int -> Int -> Model
 init top bottom =
     { topCounter = Counter.init top
