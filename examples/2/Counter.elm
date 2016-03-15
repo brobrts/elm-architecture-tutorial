@@ -26,6 +26,7 @@ type Action = Increment | Decrement
 --  and feeds them into the update function.'
 --  After the model is updated, elm takes care of rendering it.  
 --  ...kind of like angular's digest cycle???
+
  
 update : Action -> Model -> Model
 update action model =
@@ -35,7 +36,6 @@ update action model =
 
     Decrement ->
       Debug.log "Decrement: " model - 1
-
 
 -- VIEW
 -- 2 or 3 params?
