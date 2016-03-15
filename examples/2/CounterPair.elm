@@ -6,6 +6,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
 
+
 -- MODEL
 
 type alias Model =
@@ -17,7 +18,7 @@ type alias Model =
 -- is implicitly a model in code and explicit
 -- in the type def
 init : Int -> Int -> Model
-init top bottom =
+init top bottom = Debug.log "init params: top bottom" 
     { topCounter = Counter.init top
     , bottomCounter = Counter.init bottom
     }
@@ -41,16 +42,16 @@ type Action
 --  topCounter = Counter.update act model.topCounter
 
 update : Action -> Model -> Model
-update action model =
+update action model = 
   case action of
-    Reset -> init 0 0
+    Reset -> init 2 2 
 
-    Top act ->
+    Top act -> Debug.log "Top act: "
       { model |
           topCounter = Counter.update act model.topCounter
       }
 
-    Bottom act ->
+    Bottom act -> Debug.log "Bottom act: "
       { model |
           bottomCounter = Counter.update act model.bottomCounter
       }
@@ -62,7 +63,7 @@ update action model =
 
 
 view : Signal.Address Action -> Model -> Html
-view address model =
+view address model = 
   div []
     [ Counter.view (Signal.forwardTo address Top) model.topCounter
     , Counter.view (Signal.forwardTo address Bottom) model.bottomCounter

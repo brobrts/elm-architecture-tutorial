@@ -11,7 +11,7 @@ type alias Model = Int
 
 
 init : Int -> Model
-init count = count
+init count = Debug.log "init count: " count
 
 
 -- UPDATE
@@ -31,10 +31,10 @@ update : Action -> Model -> Model
 update action model =
   case action of
     Increment ->
-      model + 1
+      Debug.log "Increment: " model + 1
 
     Decrement ->
-      model - 1
+      Debug.log "Decrement: " model - 1
 
 
 -- VIEW
