@@ -31,6 +31,15 @@ type Action
     | Bottom Counter.Action
 
 
+-- 1) mystery operator act ->?
+-- must be called by the 'loop' to return the updated
+-- model for rendering.
+-- 2) 'Top' is a noun, yet it is passed in as an action!!
+-- ok for a small example, but could cause some cognative
+-- dissonance when things get large.
+-- 3) syntax:  model | topCounter ...same as Model.topCounter?
+--  topCounter = Counter.update act model.topCounter
+
 update : Action -> Model -> Model
 update action model =
   case action of
@@ -48,6 +57,9 @@ update action model =
 
 
 -- VIEW
+-- does this "Signal.Address Action", constitute one parameter?
+-- 
+
 
 view : Signal.Address Action -> Model -> Html
 view address model =
