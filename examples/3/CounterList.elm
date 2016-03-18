@@ -12,7 +12,8 @@ type alias Model =
     { counters : List ( ID, Counter.Model )
     , nextID : ID
     }
-
+    
+-- if we have an array with indexes, why nextID?
 type alias ID = Int
 
 
